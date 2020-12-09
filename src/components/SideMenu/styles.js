@@ -14,8 +14,21 @@ export const Span = styled.span`
   padding: 20px;
 `
 
-export const Input = styled.input``
+export const Input = styled.input`
+  width: 95%;
+  margin: 10px 0;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`
 
-export const TextArea = styled.textarea``
+export const TextArea = styled.textarea`
+  width: 95%;
+  height: 100px;
+  margin: 10px 0;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`
 
 export const Button = styled.button``
