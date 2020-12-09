@@ -1,10 +1,18 @@
 import React from 'react'
 
-import { Container } from './styles'
+import { Container, Span, Input, TextArea, Button } from './styles'
 
 function SideMenu() {
   return(
-      <Container></Container>
+      <Container>
+        <Span>Adicionar Local</Span>
+        <Input />
+        <Input />
+        <Input />
+        <Input />
+        <TextArea />
+        <Button></Button>
+      </Container>
   )
 }
 
