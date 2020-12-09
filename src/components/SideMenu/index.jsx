@@ -10,7 +10,7 @@ function SideMenu() {
         <Input placeholder='Latitude' />
         <Input placeholder='Logintude' />
         <Input placeholder='Imagem' />
-        <TextArea />
+        <TextArea placeholder='Orientação para imunização' />
         <Button>Adicionar</Button>
       </Container>
   )
