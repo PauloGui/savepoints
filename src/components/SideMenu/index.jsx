@@ -11,7 +11,7 @@ function SideMenu() {
         <Input />
         <Input />
         <TextArea />
-        <Button></Button>
+        <Button>Adicionar</Button>
       </Container>
   )
 }
