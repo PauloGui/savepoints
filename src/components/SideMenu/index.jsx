@@ -6,10 +6,10 @@ function SideMenu() {
   return(
       <Container>
         <Span>Adicionar Local</Span>
-        <Input />
-        <Input />
-        <Input />
-        <Input />
+        <Input placeholder='Local' />
+        <Input placeholder='Latitude' />
+        <Input placeholder='Logintude' />
+        <Input placeholder='Imagem' />
         <TextArea />
         <Button>Adicionar</Button>
       </Container>
