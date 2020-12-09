@@ -19,6 +19,7 @@ export const Header = styled.div`
       color: #000;
       object-fit: cover;
       cursor: pointer;
+      transition: 0.2s;
 
       :hover {
         background: ${shade(0.2, '#fff')}

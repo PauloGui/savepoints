@@ -31,4 +31,16 @@ export const TextArea = styled.textarea`
   border-radius: 5px;
 `
 
-export const Button = styled.button``
+export const Button = styled.button`
+  padding: 10px 20px;
+  background: #000;
+  color: #FFF;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  :hover {
+    background: #999;
+  }
+`
