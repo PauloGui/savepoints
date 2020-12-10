@@ -1,19 +1,19 @@
-import React, { useEffect, useRef, Fragment } from 'react';
-import { useField } from '@unform/core';
-import { TextArea, Error } from './styles';
+import React, { useEffect, useRef, Fragment } from 'react'
+import { useField } from '@unform/core'
+import { TextArea, Error } from './styles'
 
 export default function TextAreaUnform({ name, ...rest }) {
 
-  const inputRef = useRef(null);
-  const { fieldName, defaultValue = '', registerField, error } = useField(name);
+  const inputRef = useRef(null)
+  const { fieldName, defaultValue = '', registerField, error } = useField(name)
 
   useEffect(() => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
       path: 'value'
-    });
-  }, [fieldName, registerField]);
+    })
+  }, [fieldName, registerField])
 
   return (
     <Fragment>
@@ -29,5 +29,5 @@ export default function TextAreaUnform({ name, ...rest }) {
         <Error>{error}</Error>
       }
     </Fragment>
-  );
+  )
 }
