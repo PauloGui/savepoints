@@ -4,12 +4,16 @@ import {shade} from 'polished'
 export const Container = styled.div`
   flex: 1;
   background: #000;
-  padding: 20px;
+  position: relative;
 `
 
 export const Header = styled.div`
     display: flex;
     align-items: center;
+    width: 100%;
+    padding: 20px 60px;
+    position: absolute;
+    z-index: 10;
     justify-content: space-between;
 
     i {
