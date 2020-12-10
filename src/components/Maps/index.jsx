@@ -8,7 +8,7 @@ function Maps({showSide, setShowSide}) {
         <Container>
             <Header>
                 <ImgLogo src={Logo} />
-                <i class="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
+                <i className="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
             </Header>
         </Container>
     )

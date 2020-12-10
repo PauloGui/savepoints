@@ -1,6 +1,15 @@
 import styled from 'styled-components'
+import { Form } from '@unform/web';
 
 export const Container = styled.div`
+  width: 300px;
+  background: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+export const FormUnform = styled(Form)`
   width: 300px;
   background: #FFF;
   display: flex;
@@ -39,6 +48,7 @@ export const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: 0.2s;
+  margin-top: 10px;
 
   :hover {
     background: #999;
