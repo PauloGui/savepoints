@@ -7,6 +7,7 @@ export const TextArea = styled.textarea`
   padding: 10px 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  outline: none;
 
   ${props => props.withError && css`
     border: 1px solid #f00;

@@ -1,13 +1,13 @@
 import React, { useCallback, useRef } from 'react'
 import * as Yup from 'yup'
 import axios from 'axios'
-import Input from '../Input';
-import TextArea from '../TextArea';
+import Input from '../Input'
+import TextArea from '../TextArea'
 import { Container, Span, Button, FormUnform } from './styles'
 
 function SideMenu() {
 
-  const formRef = useRef(null);
+  const formRef = useRef(null)
 
   const handleSubmit = useCallback(async (data) => {
 
@@ -17,20 +17,24 @@ function SideMenu() {
         title: Yup.string().required('O Título é obrigatório'),
         lat: Yup.string().required('A latitude é obrigatória'),
         lng: Yup.string().required('A longitude é obrigatória'),
+        image: Yup.mixed().required('A imagem do local é obrigatória'),
         guidance: Yup.string().required('A orientação é obrigatória'),
-      });
+      })
 
       await schema.validate(data, {
         abortEarly: false,
-      });
+      })
 
-      formRef.current.setErrors({});
+      formRef.current.setErrors({})
 
       // criar formdata
 
-      const formData = new FormData();
+      const formData = new FormData()
 
       formData.append('title', data.title)
+      formData.append('lat', data.lat)
+      formData.append('lng', data.lng)
+      formData.append('guidance', data.guidance)
       formData.append('file', data.image)
 
       const resp = await axios.post('points', formData)
@@ -40,15 +44,15 @@ function SideMenu() {
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
-        const validationErrors = {};
+        const validationErrors = {}
         err.inner.forEach(error => {
-          validationErrors[error.path] = error.message;
-        });
-        formRef.current.setErrors(validationErrors);
+          validationErrors[error.path] = error.message
+        })
+        formRef.current.setErrors(validationErrors)
         return
       }
 
-      alert(err.toString());
+      alert(err.toString())
 
     }
   }, [])
