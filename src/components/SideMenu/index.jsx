@@ -3,9 +3,9 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import Input from '../Input'
 import TextArea from '../TextArea'
-import { Container, Span, Button, FormUnform } from './styles'
+import { Container, Icon, Span, Button, FormUnform } from './styles'
 
-function SideMenu() {
+function SideMenu({ setShowSide }) {
 
   const formRef = useRef(null)
 
@@ -40,6 +40,7 @@ function SideMenu() {
       const resp = await axios.post('points', formData)
 
       console.log(resp.data)
+      setShowSide(false)
       // chamar api
 
     } catch (err) {
@@ -59,6 +60,7 @@ function SideMenu() {
 
   return (
     <Container>
+      <Icon><i className="fas fa-times" onClick={e => setShowSide(false)}></i></Icon>
       <FormUnform ref={formRef} onSubmit={handleSubmit}>
         <Span>Adicionar Local</Span>
         <Input type='text' name='title' placeholder='Local' />

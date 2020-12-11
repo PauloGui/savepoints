@@ -16,7 +16,7 @@ function Main() {
       />
       {
         showSide &&
-        <SideMenu />
+        <SideMenu setShowSide={setShowSide} />
       }
     </Container>
   )

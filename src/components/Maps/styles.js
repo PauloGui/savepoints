@@ -8,28 +8,31 @@ export const Container = styled.div`
   position: relative;
 
   i {
-      border-radius: 50%;
-      margin-top: 10px;
-      right: 20px;
-      padding: 10px;
-      background: #FFF;
-      color: #000;
-      position: absolute;
-      z-index: 10;
-      object-fit: cover;
-      cursor: pointer;
-      transition: 0.2s;
+    display: flex;
+    border-radius: 50%;
+    margin-top: 10px;
+    right: 20px;
+    padding: 10px;
+    background: #FFF;
+    color: #000;
+    position: absolute;
+    z-index: 10;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.2s;
 
-      :hover {
-        background: ${shade(0.2, '#fff')}
-      }
+    :hover {
+      background: ${shade(0.2, '#fff')}
+    }
+  }
 
-      @media(max-width: 800px) {
+  @media(max-width:800px) {
+      display: flex;
+      flex-direction: column;
 
-    i{
-      align-self: flex-end;
-      bottom: 0;
-      }
+  i{
+    margin-bottom: 20px;
+    bottom: 0;
     }
   }
 `
@@ -46,7 +49,7 @@ export const ImgLogo = styled.img`
 
   @media(max-width: 800px) {
     align-self: flex-start;
-    margin-left: 40px;
+    margin-left: 50px;
   }
 `
 export const Img = styled.img`

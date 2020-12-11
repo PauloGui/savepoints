@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Container, Header, ImgLogo, Img, Title, Description, PopupInfo } from './styles'
+import { Container, ImgLogo, Img, Title, Description, PopupInfo } from './styles'
 import 'leaflet/dist/leaflet.css'
 import Leaflet from 'leaflet'
 import Logo from '../../assets/logo.png'
@@ -26,19 +26,20 @@ function Maps({ showSide, setShowSide }) {
   }, [])
   return (
     <Container>
-        <ImgLogo src={Logo} />
-        <i className="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
-      {points.map(point => (
-        <MapContainer
-          key={point.id}
-          center={[point.lat, point.lng]}
-          zoom={15}
-          style={{ width: '100%', height: '100%', margin: '0', padding: '0', zIndex: '5' }}
-        >
-          <TileLayer
-            url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
-          />
+      <ImgLogo src={Logo} />
+      <i className="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
+
+      <MapContainer
+        center={[-15.7750836, -48.0772935]}
+        zoom={13}
+        style={{ width: '100%', height: '100%', margin: '0', padding: '0', zIndex: '5' }}
+      >
+        <TileLayer
+          url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+        />
+        {points.map(point => (
           <Marker
+            key={point.id}
             icon={mapIcon}
             position={[point.lat, point.lng]}>
             <Popup closeButton={false} minWidth={240} maxWidth={240}>
@@ -49,8 +50,9 @@ function Maps({ showSide, setShowSide }) {
               </PopupInfo>
             </Popup>
           </Marker>
-        </MapContainer>
-      ))}
+        ))}
+      </MapContainer>
+      
     </Container>
   )
 }

@@ -8,7 +8,27 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media(max-width:800px){
+    flex: 1;
+    position: absolute;
+    z-index: 15;
+    height: 100vh;
+    width: 100vw;
+  }
 `
+
+export const Icon = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  align-self: flex-end;
+  color: #999;
+  padding: 20px;
+  cursor: pointer;
+`
+
 export const FormUnform = styled(Form)`
   width: 300px;
   background: #FFF;
