@@ -7,4 +7,12 @@ export default createGlobalStyle`
         box-sizing: border-box;
         font-family: Poppins;
     }
+
+    body {
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    body html #root {
+      height: 100%100vh;
+    }
 `

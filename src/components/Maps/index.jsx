@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Container, Header, ImgLogo } from './styles'
+import { Container, Header, ImgLogo, Img, Title, Description, PopupInfo } from './styles'
 import 'leaflet/dist/leaflet.css'
 import Leaflet from 'leaflet'
 import Logo from '../../assets/logo.png'
@@ -12,6 +12,7 @@ function Maps({ showSide, setShowSide }) {
     iconUrl: Mark,
     iconSize: [50, 44],
     iconAnchor: [25, 44],
+
   })
 
   const [points, setPoints] = useState([])
@@ -25,10 +26,8 @@ function Maps({ showSide, setShowSide }) {
   }, [])
   return (
     <Container>
-      <Header>
         <ImgLogo src={Logo} />
         <i className="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
-      </Header>
       {points.map(point => (
         <MapContainer
           key={point.id}
@@ -43,7 +42,11 @@ function Maps({ showSide, setShowSide }) {
             icon={mapIcon}
             position={[point.lat, point.lng]}>
             <Popup closeButton={false} minWidth={240} maxWidth={240}>
-              {point.title}
+              <PopupInfo>
+                <Img src={point.image} />
+                <Title>{point.title}</Title>
+                <Description>{point.guidance}</Description>
+              </PopupInfo>
             </Popup>
           </Marker>
         </MapContainer>
