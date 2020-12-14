@@ -5,7 +5,7 @@ import Input from '../Input'
 import TextArea from '../TextArea'
 import { Container, Icon, Span, Button, FormUnform } from './styles'
 
-function SideMenu({ setShowSide }) {
+function SideMenu({ setShowSide, refreshMap }) {
 
   const formRef = useRef(null)
 
@@ -27,8 +27,6 @@ function SideMenu({ setShowSide }) {
 
       formRef.current.setErrors({})
 
-      // criar formdata
-
       const formData = new FormData()
 
       formData.append('title', data.title)
@@ -38,10 +36,9 @@ function SideMenu({ setShowSide }) {
       formData.append('file', data.image)
 
       const resp = await axios.post('points', formData)
-
+      refreshMap()
       console.log(resp.data)
       setShowSide(false)
-      // chamar api
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {

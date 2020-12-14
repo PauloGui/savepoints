@@ -7,6 +7,11 @@ export const Container = styled.div`
   background: #000;
   position: relative;
 
+  a {
+    background: transparent;
+    border: 0;
+  }
+
   i {
     display: flex;
     border-radius: 50%;

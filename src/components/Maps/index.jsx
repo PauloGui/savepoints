@@ -18,16 +18,22 @@ function Maps({ showSide, setShowSide }) {
   const [points, setPoints] = useState([])
 
   useEffect(() => {
+    refreshMap()
+  }, [])
+
+  const refreshMap = () => {
     axios.get('points').then(resp => {
       if (resp.data.success) {
         setPoints(resp.data.points)
       }
     })
-  }, [])
+  }
+
+  
   return (
     <Container>
-      <ImgLogo src={Logo} />
-      <i className="fas fa-plus" onClick={() => setShowSide(!showSide)}></i>
+      <a href= '/'><ImgLogo src={Logo} /></a>
+      <i className="fas fa-plus" onClick={() => setShowSide(!showSide)} refreshMap={refreshMap}></i>
 
       <MapContainer
         center={[-15.7750836, -48.0772935]}
