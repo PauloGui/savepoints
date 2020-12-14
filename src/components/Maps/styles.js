@@ -10,6 +10,7 @@ export const Container = styled.div`
   a {
     background: transparent;
     border: 0;
+    outline: none;
   }
 
   i {
